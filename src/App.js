@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './Components/Layouts/Header';
 import Footer from './Components/Layouts/Footer';
 import Home from './Components/HomePage/HeroImage';
-import About from './Components/AboutPage/About-us';
+import About from './Components/Pages/Aboutus';
 import './App.css';
 
 function App() {

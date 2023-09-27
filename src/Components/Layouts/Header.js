@@ -32,8 +32,8 @@ export default function Header() {
             }}>
 
                 <div className="flex flex-row items-center justify-between ">
-                    <a href="/" className="pl-7 flex logo lg:ml-10">
-                        <img height="30%" width="30%" src={Logo} alt="logo" />
+                    <a  className="pl-7 flex logo lg:ml-10">
+                        <Link to="/"><img height="30%" width="30%" src={Logo} alt="logo" /></Link>
                         <div className="ml-5 text-[#fff] lg:hidden xmd:hidden md:hidden xsm:hidden sm:block xl:block 2xl:block">
                             <div className="flex">
                                 <IoIosCall size={20} />  <p className="mt-[-5px]">+91-9054865866</p>
