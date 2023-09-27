@@ -1,17 +1,68 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { HiLocationMarker } from 'react-icons/hi';
 import { MdDateRange } from 'react-icons/md';
 import { BiSolidTimeFive } from 'react-icons/bi';
-export default function HeroForm({ color }) {
+import DatePicker from "react-datepicker";
+
+const GPlace = () => {
     const [openTab, setOpenTab] = React.useState(1);
     const [subOpenTab, setSubOpenTab] = React.useState(1);
     const [secOpenTab, setSecOpenTab] = React.useState(1);
+
+    const placeInputRef1 = useRef(null);
+    const placeInputRef2 = useRef(null);
+    const placeInputRef3 = useRef(null);
+    const placeInputRef4 = useRef(null);
+    const placeInputRef5 = useRef(null);
+
+
+    useEffect(() => {
+        initPlaceAPI();
+    }, []);
+
+    // initialize the google place autocomplete
+    const initPlaceAPI = () => {
+        let autocomplete1 = new window.google.maps.places.Autocomplete(
+            placeInputRef1.current,
+            
+        );
+        let autocomplete2 = new window.google.maps.places.Autocomplete(
+            placeInputRef2.current,
+            
+        );
+        let autocomplete3 = new window.google.maps.places.Autocomplete(
+            placeInputRef3.current,
+            
+        );
+        let autocomplete4 = new window.google.maps.places.Autocomplete(
+            placeInputRef4.current,
+            
+        );
+        let autocomplete5 = new window.google.maps.places.Autocomplete(
+            placeInputRef5.current,
+            
+        );
+       
+        new window.google.maps.event.addListener(
+            autocomplete1,
+            autocomplete2,
+            autocomplete3,
+            autocomplete4,
+            autocomplete5,
+
+            'place_changed',
+        );
+    };
+
     return (
         <>
+        
             <div className="flex justify-center items-center ">
                 <div className="w-full">
-                    <ul className="flex list-none flex-wrap pt-3 pb-4 flex-row lg:mb-0 xmd:mb-0 md:mb-0 xsm:mb-0  sm:mb-4" role="tablist">
+                    <ul className="flex list-none flex-wrap pt-3 pb-4 flex-row lg:mb-0 xmd:mb-0 md:mb-0 xsm:mb-0  sm:mb-4 ml-[-15px]" role="tablist">
                         <li className=" text-center ">
+                           
+                          
                             <a className={"text-[16px] font-[500] uppercase lg:px-14 lg:py-3 xmd:px-14 xmd:py-3 md:px-14 md:py-3 xsm:px-14 xsm:py-3 sm:px-14 sm:py-3 xl:px-10 xl:py-3 2xl:px-10 2xl:py-3 lg:border-l lg:border-t lg:border-b xmd:border-l xmd:border-t xmd:border-b md:border-l md:border-t md:border-b  xsm:border-l xsm:border-t xsm:border-b " +
                                 (openTab === 1
                                     ? "text-white lg:bg-yellow xmd:bg-yellow md:bg-yellow xsm:bg-yellow  sm:border-b-4 sm:border-yellow xl:border-b-4 xl:border-yellow 2xl:border-b-4 2xl:border-yellow"
@@ -48,9 +99,9 @@ export default function HeroForm({ color }) {
                                         role="tablist"
                                     >
                                         <li className="text-center">
-                                            <a className={ "text-[16px] font-[600] lg:px-14 lg:py-2.5 xmd:px-14 xmd:py-2.5 md:px-14 md:py-2.5  xsm:px-14 xsm:py-2.5  sm:px-6 sm:py-2.5  xl:px-1 xl:py-2.5  2xl:px-2 2xl:py-2.5  border rounded-lg border-[#e0e1e4]  " +
-                                                    (subOpenTab === 1 ? "text-blue bg-yellow" : "text-blue  bg-[#fff]")
-                                                }
+                                            <a className={"text-[16px] font-[600] lg:px-14 lg:py-2.5 xmd:px-14 xmd:py-2.5 md:px-14 md:py-2.5  xsm:px-14 xsm:py-2.5  sm:px-6 sm:py-2.5  xl:px-1 xl:py-2.5  2xl:px-2 2xl:py-2.5  border rounded-lg border-[#e0e1e4]  " +
+                                                (subOpenTab === 1 ? "text-blue bg-yellow" : "text-blue  bg-[#fff]")
+                                            }
                                                 onClick={(e) => {
                                                     e.preventDefault();
                                                     setSubOpenTab(1);
@@ -59,24 +110,24 @@ export default function HeroForm({ color }) {
                                             </a>
                                         </li>
                                         <li className="text-center">
-                                            <a className={ "text-[16px] font-[600] lg:px-14 lg:py-2.5 xmd:px-14 xmd:py-2.5 md:px-14 md:py-2.5  xsm:px-14 xsm:py-2.5  sm:px-6 sm:py-2.5  xl:px-1 xl:py-2.5  2xl:px-2 2xl:py-2.5  ml-[-28px] border rounded-lg border-[#e0e1e4] " +
-                                                    (subOpenTab === 2 ? "text-blue bg-yellow" : "text-blue   bg-[#fff] ")
-                                                }
+                                            <a className={"text-[16px] font-[600] lg:px-14 lg:py-2.5 xmd:px-14 xmd:py-2.5 md:px-14 md:py-2.5  xsm:px-14 xsm:py-2.5  sm:px-6 sm:py-2.5  xl:px-1 xl:py-2.5  2xl:px-2 2xl:py-2.5  ml-[-28px] border rounded-lg border-[#e0e1e4] " +
+                                                (subOpenTab === 2 ? "text-blue bg-yellow" : "text-blue   bg-[#fff] ")
+                                            }
                                                 onClick={(e) => {
                                                     e.preventDefault();
                                                     setSubOpenTab(2);
-                                                }}  data-toggle="tab" href="#link2" role="tablist" >
+                                                }} data-toggle="tab" href="#link2" role="tablist" >
                                                 Round Trip
                                             </a>
                                         </li>
                                         <li className="text-center">
-                                            <a className={ "text-[16px] font-[600] lg:px-14 lg:py-2.5 xmd:px-14 xmd:py-2.5 md:px-14 md:py-2.5  xsm:px-14 xsm:py-2.5  sm:px-6 sm:py-2.5  xl:px-1 xl:py-2.5  2xl:px-2 2xl:py-2.5  ml-[-28px] border rounded-lg border-[#e0e1e4] " +
-                                                    (subOpenTab === 3 ? "text-blue bg-yellow" : "text-blue   bg-[#fff] ")
-                                                }
+                                            <a className={"text-[16px] font-[600] lg:px-14 lg:py-2.5 xmd:px-14 xmd:py-2.5 md:px-14 md:py-2.5  xsm:px-14 xsm:py-2.5  sm:px-6 sm:py-2.5  xl:px-1 xl:py-2.5  2xl:px-2 2xl:py-2.5  ml-[-28px] border rounded-lg border-[#e0e1e4] " +
+                                                (subOpenTab === 3 ? "text-blue bg-yellow" : "text-blue   bg-[#fff] ")
+                                            }
                                                 onClick={(e) => {
                                                     e.preventDefault();
                                                     setSubOpenTab(3);
-                                                }}  data-toggle="tab" href="#link2" role="tablist" >
+                                                }} data-toggle="tab" href="#link2" role="tablist" >
                                                 Multi city
                                             </a>
                                         </li>
@@ -84,54 +135,56 @@ export default function HeroForm({ color }) {
 
                                     <div className={subOpenTab === 1 ? "block" : "hidden"} >
                                         <div >
-                                            <div class="grid lg:grid-cols-4 xmd:grid-cols-4 md:grid-cols-4 xsm:grid-cols-4 gap-3">
+                                            <div className="grid lg:grid-cols-4 xmd:grid-cols-4 md:grid-cols-4 xsm:grid-cols-4 gap-3">
 
-                                                <div class="col-span-1 relative">
-                                                    <span class="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
+                                                <div className="col-span-1 relative">
+                                                    <span className="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
                                                         <HiLocationMarker fill='#1254d0' size={20} />
                                                     </span>
+                                                   
                                                     <input
                                                         type="text"
                                                         name="input1"
-                                                        class="pl-8 pr-2 py-6  rounded-lg w-full placehoder:font-bold
+                                                        className="pl-8 pr-2 py-6  rounded-lg w-full placehoder:font-bold
                                                         lg:border-0 xmd:border-0 md:border-0 xsm:border-0 sm:border xl:border 2xl:border border-[#dadada]"
-                                                        placeholder="From City"
+                                                        placeholder="From City" ref={placeInputRef1}
                                                     />
+                                                    
                                                 </div>
 
 
-                                                <div class="col-span-1 relative">
-                                                    <span class="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
+                                                <div className="col-span-1 relative">
+                                                    <span className="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
                                                         <HiLocationMarker fill='#1254d0' size={20} /></span>
                                                     <input
                                                         type="text"
                                                         name="input2"
-                                                        class="pl-8 pr-2 py-6 border-0  rounded-lg w-full
+                                                        className="pl-8 pr-2 py-6 border-0  rounded-lg w-full
                                                         lg:border-0 xmd:border-0 md:border-0 xsm:border-0 sm:border xl:border 2xl:border border-[#dadada]"
-                                                        placeholder="To City"
+                                                        placeholder="To City" ref={placeInputRef2}
                                                     />
                                                 </div>
 
-                                                <div class="col-span-1 relative">
-                                                    <span class="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
+                                                <div className="col-span-1 relative">
+                                                    <span className="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
                                                         <MdDateRange fill='#1254d0' size={20} /></span>
                                                     <input
                                                         type="text"
                                                         name="input3"
-                                                        class="pl-8 pr-2 py-6 border-0  rounded-lg w-full
+                                                        className="pl-8 pr-2 py-6 border-0  rounded-lg w-full
                                                         lg:border-0 xmd:border-0 md:border-0 xsm:border-0 sm:border xl:border 2xl:border border-[#dadada]"
                                                         placeholder="Choose Date"
                                                     />
                                                 </div>
 
 
-                                                <div class="col-span-1 relative">
-                                                    <span class="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
+                                                <div className="col-span-1 relative">
+                                                    <span className="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
                                                         <BiSolidTimeFive fill='#1254d0' size={20} /></span>
                                                     <input
                                                         type="text"
                                                         name="input4"
-                                                        class="pl-8 pr-2 py-6 border-0 rounded-lg w-full
+                                                        className="pl-8 pr-2 py-6 border-0 rounded-lg w-full
                                                         lg:border-0 xmd:border-0 md:border-0 xsm:border-0 sm:border xl:border 2xl:border border-[#dadada]"
                                                         placeholder="Choose Time"
                                                     />
@@ -140,8 +193,8 @@ export default function HeroForm({ color }) {
 
                                             </div>
 
-                                            <div class="flow-root ">
-                                                <p class="float-right border-0 text-[#1254d0] bg-yellow px-8 py-2 text-[18px] font-mont  my-3 rounded-3xl font-[700] ">
+                                            <div className="flow-root ">
+                                                <p className="float-right border-0 text-[#1254d0] bg-yellow px-8 py-2 text-[18px] font-mont  my-3 rounded-3xl font-[700] ">
                                                     Search Cab
                                                 </p>
                                             </div>
@@ -150,76 +203,76 @@ export default function HeroForm({ color }) {
 
                                     <div className={subOpenTab === 2 ? "block" : "hidden"} >
                                         <div >
-                                            <div class="grid grid-cols-1 md:grid-cols-5 gap-3">
+                                            <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
 
-                                                <div class="col-span-1 relative">
-                                                    <span class="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
+                                                <div className="col-span-1 relative">
+                                                    <span className="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
                                                         <HiLocationMarker fill='#1254d0' size={20} />
                                                     </span>
                                                     <input
                                                         type="text"
                                                         name="input1"
-                                                        class="pl-8 pr-2 py-6 border-0 rounded-lg w-full
+                                                        className="pl-8 pr-2 py-6 border-0 rounded-lg w-full
                                                         lg:border-0 xmd:border-0 md:border-0 xsm:border-0 sm:border xl:border 2xl:border border-[#dadada]"
-                                                        placeholder="From City"
+                                                        placeholder="From City" ref={placeInputRef3}
                                                     />
                                                 </div>
 
 
 
-                                                <div class="col-span-1 relative">
-                                                    <span class="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
+                                                <div className="col-span-1 relative">
+                                                    <span className="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
                                                         <HiLocationMarker fill='#1254d0' size={20} /></span>
                                                     <input
                                                         type="text"
                                                         name="input2"
-                                                        class="pl-8 pr-2 py-6 border-0  rounded-lg w-full
+                                                        className="pl-8 pr-2 py-6 border-0  rounded-lg w-full
                                                         lg:border-0 xmd:border-0 md:border-0 xsm:border-0 sm:border xl:border 2xl:border border-[#dadada]"
-                                                        placeholder="To City"
+                                                        placeholder="To City" ref={placeInputRef4}
                                                     />
                                                 </div>
 
-                                                <div class="col-span-1 relative">
-                                                    <span class="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
+                                                <div className="col-span-1 relative">
+                                                    <span className="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
                                                         <MdDateRange fill='#1254d0' size={20} /></span>
                                                     <input
                                                         type="text"
                                                         name="input3"
-                                                        class="pl-8 pr-2 py-6 border-0  rounded-lg w-full
+                                                        className="pl-8 pr-2 py-6 border-0  rounded-lg w-full
                                                         lg:border-0 xmd:border-0 md:border-0 xsm:border-0 sm:border xl:border 2xl:border border-[#dadada]"
                                                         placeholder="Choose Date"
                                                     />
                                                 </div>
 
 
-                                                <div class="col-span-1 relative">
-                                                    <span class="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
+                                                <div className="col-span-1 relative">
+                                                    <span className="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
                                                         <BiSolidTimeFive fill='#1254d0' size={20} /></span>
                                                     <input
                                                         type="text"
                                                         name="input4"
-                                                        class="pl-8 pr-2 py-6 border-0 rounded-lg w-full
+                                                        className="pl-8 pr-2 py-6 border-0 rounded-lg w-full
                                                         lg:border-0 xmd:border-0 md:border-0 xsm:border-0 sm:border xl:border 2xl:border border-[#dadada]"
                                                         placeholder="Choose Time"
                                                     />
                                                 </div>
-                                                <div class="col-span-1 relative">
-                                                    <span class="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
+                                                <div className="col-span-1 relative">
+                                                    <span className="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
                                                         <HiLocationMarker fill='#1254d0' size={20} />
                                                     </span>
                                                     <input
                                                         type="text"
                                                         name="input1"
-                                                        class="pl-8 pr-2 py-6 border-0 rounded-lg w-full
+                                                        className="pl-8 pr-2 py-6 border-0 rounded-lg w-full
                                                         lg:border-0 xmd:border-0 md:border-0 xsm:border-0 sm:border xl:border 2xl:border border-[#dadada]"
-                                                        placeholder="From City"
+                                                        placeholder="From City" ref={placeInputRef5}
                                                     />
                                                 </div>
 
                                             </div>
 
-                                            <div class="flow-root ">
-                                                <p class="float-right border-0 text-[#1254d0] bg-yellow px-8 py-2 text-[18px] font-mont  my-3 rounded-3xl font-[700] ">
+                                            <div className="flow-root ">
+                                                <p className="float-right border-0 text-[#1254d0] bg-yellow px-8 py-2 text-[18px] font-mont  my-3 rounded-3xl font-[700] ">
                                                     Search Cab
                                                 </p>
                                             </div>
@@ -273,54 +326,54 @@ export default function HeroForm({ color }) {
                                     </ul>
                                     <div className={secOpenTab === 1 ? "block" : "hidden"} >
                                         <div >
-                                            <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+                                            <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
 
-                                                <div class="col-span-1 relative">
-                                                    <span class="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
+                                                <div className="col-span-1 relative">
+                                                    <span className="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
                                                         <HiLocationMarker fill='#1254d0' size={20} />
                                                     </span>
                                                     <input
                                                         type="text"
                                                         name="input1"
-                                                        class="pl-8 pr-2 py-6 border-0 rounded-lg w-full
+                                                        className="pl-8 pr-2 py-6 border-0 rounded-lg w-full
                                                         lg:border-0 xmd:border-0 md:border-0 xsm:border-0 sm:border xl:border 2xl:border border-[#dadada]"
                                                         placeholder="Pick Up City"
                                                     />
                                                 </div>
 
 
-                                                <div class="col-span-1 relative">
-                                                    <span class="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
+                                                <div className="col-span-1 relative">
+                                                    <span className="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
                                                         <HiLocationMarker fill='#1254d0' size={20} /></span>
                                                     <input
                                                         type="text"
                                                         name="input2"
-                                                        class="pl-8 pr-2 py-6 border-0  rounded-lg w-full
+                                                        className="pl-8 pr-2 py-6 border-0  rounded-lg w-full
                                                         lg:border-0 xmd:border-0 md:border-0 xsm:border-0 sm:border xl:border 2xl:border border-[#dadada]"
                                                         placeholder="Select Hours/Kms"
                                                     />
                                                 </div>
 
-                                                <div class="col-span-1 relative">
-                                                    <span class="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
+                                                <div className="col-span-1 relative">
+                                                    <span className="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
                                                         <MdDateRange fill='#1254d0' size={20} /></span>
                                                     <input
                                                         type="text"
                                                         name="input3"
-                                                        class="pl-8 pr-2 py-6 border-0  rounded-lg w-full
+                                                        className="pl-8 pr-2 py-6 border-0  rounded-lg w-full
                                                         lg:border-0 xmd:border-0 md:border-0 xsm:border-0 sm:border xl:border 2xl:border border-[#dadada]"
                                                         placeholder="Choose Date"
                                                     />
                                                 </div>
 
 
-                                                <div class="col-span-1 relative">
-                                                    <span class="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
+                                                <div className="col-span-1 relative">
+                                                    <span className="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
                                                         <BiSolidTimeFive fill='#1254d0' size={20} /></span>
                                                     <input
                                                         type="text"
                                                         name="input4"
-                                                        class="pl-8 pr-2 py-6 border-0 rounded-lg w-full
+                                                        className="pl-8 pr-2 py-6 border-0 rounded-lg w-full
                                                         lg:border-0 xmd:border-0 md:border-0 xsm:border-0 sm:border xl:border 2xl:border border-[#dadada]"
                                                         placeholder="Choose Time"
                                                     />
@@ -329,8 +382,8 @@ export default function HeroForm({ color }) {
 
                                             </div>
 
-                                            <div class="flow-root ">
-                                                <p class="float-right border-0 text-[#1254d0] bg-yellow px-8 py-2 text-[18px] font-mont  my-3 rounded-3xl font-[700] ">
+                                            <div className="flow-root ">
+                                                <p className="float-right border-0 text-[#1254d0] bg-yellow px-8 py-2 text-[18px] font-mont  my-3 rounded-3xl font-[700] ">
                                                     Search Cab
                                                 </p>
                                             </div>
@@ -338,62 +391,62 @@ export default function HeroForm({ color }) {
                                     </div>
                                     <div className={secOpenTab === 2 ? "block" : "hidden"} >
                                         <div >
-                                            <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+                                            <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
 
-                                                <div class="col-span-1 relative">
-                                                    <span class="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
+                                                <div className="col-span-1 relative">
+                                                    <span className="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
                                                         <HiLocationMarker fill='#1254d0' size={20} />
                                                     </span>
                                                     <input
                                                         type="text"
                                                         name="input1"
-                                                        class="pl-8 pr-2 py-6 border-0 rounded-lg w-full
+                                                        className="pl-8 pr-2 py-6 border-0 rounded-lg w-full
                                                         lg:border-0 xmd:border-0 md:border-0 xsm:border-0 sm:border xl:border 2xl:border border-[#dadada]"
                                                         placeholder="Pickup City"
                                                     />
                                                 </div>
 
 
-                                                <div class="col-span-1 relative">
-                                                    <span class="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
+                                                <div className="col-span-1 relative">
+                                                    <span className="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
                                                         <HiLocationMarker fill='#1254d0' size={20} /></span>
                                                     <input
                                                         type="text"
                                                         name="input2"
-                                                        class="pl-8 pr-2 py-6 border-0  rounded-lg w-full
+                                                        className="pl-8 pr-2 py-6 border-0  rounded-lg w-full
                                                         lg:border-0 xmd:border-0 md:border-0 xsm:border-0 sm:border xl:border 2xl:border border-[#dadada]"
                                                         placeholder="Select Airport"
                                                     />
                                                 </div>
 
-                                                <div class="col-span-1 relative">
-                                                    <span class="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
+                                                <div className="col-span-1 relative">
+                                                    <span className="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
                                                         <MdDateRange fill='#1254d0' size={20} /></span>
                                                     <input
                                                         type="text"
                                                         name="input3"
-                                                        class="pl-8 pr-2 py-6 border-0  rounded-lg w-full
+                                                        className="pl-8 pr-2 py-6 border-0  rounded-lg w-full
                                                         lg:border-0 xmd:border-0 md:border-0 xsm:border-0 sm:border xl:border 2xl:border border-[#dadada]"
                                                         placeholder="Choose Date"
                                                     />
                                                 </div>
 
 
-                                                <div class="col-span-1 relative">
-                                                    <span class="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
+                                                <div className="col-span-1 relative">
+                                                    <span className="material-icons absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
                                                         <BiSolidTimeFive fill='#1254d0' size={20} /></span>
                                                     <input
                                                         type="text"
                                                         name="input4"
-                                                        class="pl-8 pr-2 py-6 border-0 rounded-lg w-full
+                                                        className="pl-8 pr-2 py-6 border-0 rounded-lg w-full
                                                         lg:border-0 xmd:border-0 md:border-0 xsm:border-0 sm:border xl:border 2xl:border border-[#dadada]"
                                                         placeholder="Choose Time"
                                                     />
                                                 </div>
                                             </div>
 
-                                            <div class="flow-root ">
-                                                <p class="float-right border-0 text-[#1254d0] bg-yellow px-8 text-[18px] my-3 font-mont rounded-3xl font-[700] ">
+                                            <div className="flow-root ">
+                                                <p className="float-right border-0 text-[#1254d0] bg-yellow px-8 text-[18px] my-3 font-mont rounded-3xl font-[700] ">
                                                     Search Cab
                                                 </p>
                                             </div>
@@ -406,10 +459,17 @@ export default function HeroForm({ color }) {
                     </div>
                 </div>
             </div>
-           
+            <div></div>
+
+
+
+        
+
+
 
         </>
     );
 };
 
+export default GPlace;
 
