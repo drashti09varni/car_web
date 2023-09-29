@@ -60,7 +60,7 @@ export default function Header() {
                                     Home
                                 </a>
                                 </Link>
-                                <Link to="/about"><a onClick={() => setOpenNav(false)}
+                                <Link to="/about-us"><a onClick={() => setOpenNav(false)}
                                     className="text-xl font-semibold text-blue-800  py-2 transition-all hover:text-orange-500">
                                     about us </a>
                                 </Link>
@@ -69,7 +69,7 @@ export default function Header() {
                                     className="text-xl font-semibold text-blue-800  py-2 transition-all hover:text-orange-500">
                                     driver
                                 </a> </Link>
-                                <Link to="/contact"> <a onClick={() => setOpenNav(false)} href="#contact"
+                                <Link to="/contact-us"> <a onClick={() => setOpenNav(false)} 
                                     className="text-xl font-semibold text-blue-800  py-2 transition-all hover:text-orange-500">
                                     Contact us
                                 </a> </Link>
@@ -84,11 +84,11 @@ export default function Header() {
                     <ul className="flex uppercase justify-around mr-0 lg:visible sm:invisible xl:invisible 2xl:invisible right-8 absolute">
                         <Link to="/"><li className="text-[16px] font-semibold text-blue-800 transition-all">Home</li></Link>
                         <li className="text-xl mt-[-5px]">|</li>
-                        <Link to="/about"><li href="#product" className="text-[16px]  font-semibold text-blue-800 transition-all ">about us</li> </Link>
+                        <Link to="/about-us"><li href="#product" className="text-[16px]  font-semibold text-blue-800 transition-all ">about us</li> </Link>
                         <li className="text-xl mt-[-5px]">|</li>
                         <Link to="/driver"><li href="#faq" className="text-[16px]  font-semibold text-blue-800 transition-all">driver</li></Link>
                         <li className="text-xl mt-[-5px]">|</li>
-                        <Link to="/contact"><li href="#contact" className="text-[16px]  font-semibold text-blue-800 transition-all ">Contact us</li></Link>
+                        <Link to="/contact-us"><li href="#contact" className="text-[16px]  font-semibold text-blue-800 transition-all ">Contact us</li></Link>
                         <a className="flex text-[15px] font-semibold text-blue-800 bg-yellow px-6 border-1 ml-10 
                         border-yellow rounded-2xl py-1">Call @+91-9054865866</a>
 

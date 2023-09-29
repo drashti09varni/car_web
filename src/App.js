@@ -5,6 +5,7 @@ import Home from './Components/HomePage/HeroImage';
 import About from './Components/Pages/Aboutus';
 import Driver from './Components/Pages/Drive';
 import './App.css';
+import ContactUs from './Components/Pages/ContactUs';
 
 function App() {
   return (
@@ -13,9 +14,9 @@ function App() {
         <Header />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About />} />
+          <Route path='/about-us' element={<About />} />
           <Route path='/driver' element={<Driver />} />
-
+          <Route path="/contact-us" element={<ContactUs />} />
         </Routes>
         <Footer />
       </Router>
