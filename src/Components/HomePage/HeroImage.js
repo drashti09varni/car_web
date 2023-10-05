@@ -7,13 +7,13 @@ import HowItWork from './How-it-work';
 import Testimonial from './Testimonial';
 
 export default function HeroImage() {
-  
-        
+
+
     return (
         <>
-            <div >
+            <div>
 
-                <div className="w-full lg:h-[100vh] xmd:h-[80vh] md:h-[75vh]  xsm:h-[65vh] sm:h-[65vh] 
+                <div className="w-full lg:h-[100vh] xmd:h-[88vh] md:h-[80vh]  xsm:h-[73vh] sm:h-[70vh] 
                 lg:rounded-none xmd:rounded-none md:rounded-none  xsm:rounded-none  sm:rounded-b-[60px] xl:rounded-b-[60px] 2xl:rounded-b-[60px]
                 bg-dunes bg-cover bg-center flex justify-center" >
                     <div className='mt-[110px]'>
@@ -47,6 +47,7 @@ export default function HeroImage() {
                 <HowItWork />
             </div>
             <Testimonial />
+           
         </>
     )
 }

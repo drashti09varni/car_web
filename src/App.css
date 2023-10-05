@@ -495,3 +495,16 @@ input {
   position: relative;
   top: -2px;
 }
+
+
+.react-datepicker__input-container {
+  position: inherit;
+  width: 100%;
+}
+
+
+:where(.css-dev-only-do-not-override-pr0fja).ant-btn-primary {
+  color: #000;
+  background-color: #1677ff;
+  box-shadow: 0 2px 0 rgba(5, 145, 255, 0.1);
+}

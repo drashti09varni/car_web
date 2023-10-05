@@ -14,6 +14,7 @@ export default function App() {
     slidesToScroll: 1,
     className: 'theClass',
     arrows: false,
+    autoplay:true
   };
 
   return (

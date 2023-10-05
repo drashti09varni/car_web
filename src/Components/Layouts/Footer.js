@@ -255,7 +255,7 @@ export default function Footer() {
             <div class="bg-[#12161d] text-white py-10 lg:px-0 xmd:px-28 md:px-32 xsm:px-10 sm:px-10 xl:px-10">
                 <div class="container mx-auto flex justify-center">
                     <div className=' grid lg:grid-cols-3  xmd:grid-cols-3 md:grid-cols-3 xsm:grid-cols-2 sm:grid-cols-2 xl:grid-cols-2 gap-9 '>
-                        <div className="h-[250px]  lg:w-[350px] xsm:w-[150px] xl:w-[100px] text-[#9e9e9e]" >
+                        <div className="  lg:w-[350px] xsm:w-[150px] xl:w-[100px] text-[#9e9e9e]" >
                             <div className='flex flex-col  '>
                                 <a className='py-1 text-[18px]  text-[#fff] font-[600]'>About Taxi</a>
                                 <a className='py-1'>About Us </a>
@@ -264,7 +264,7 @@ export default function Footer() {
                                 <a className='py-1'>Sitemap</a>
                             </div>
                         </div>
-                        <div className='h-[250px] w-[350px] xsm:w-[200px] xl:w-[100px] text-[#9e9e9e]'>
+                        <div className=' w-[350px] xsm:w-[200px] xl:w-[100px] text-[#9e9e9e]'>
                             <div className='flex flex-col'>
                                 <a className='py-1 text-[18px] text-[#fff] font-[600]'>Terms of Uses </a>
                                 <a className='py-1'> Privacy Policy </a>
@@ -274,7 +274,7 @@ export default function Footer() {
                                 <a className='py-1'>Blog</a>
                             </div>
                         </div>
-                        <div className='h-[250px]  w-[350px] xsm:w-[376px] xl:w-[340px] 2xl:w-[200px] text-[#9e9e9e]'>
+                        <div className=' w-[350px] xsm:w-[376px] xl:w-[340px] 2xl:w-[200px] text-[#9e9e9e]'>
                             <div className='flex flex-col py-1'>
                                 <a className='py-1 text-[18px] text-[#fff] font-[600]'>Address </a>
                                 <div className='flex py-2'>
@@ -284,7 +284,7 @@ export default function Footer() {
                                     <HiMail size={28} />
                                     <p className='ml-2'> booking@buzzway.in </p> </div>
                                 <div className='flex py-1'>
-                                    <FaHome size={50} />
+                                    <FaHome size={90} />
                                     <p className='ml-2'>  Shakti Plaza, 15 A Jagnath Plot Opp. Hotel Imperial Palace Rajkot, Gujarat 360001  </p> </div>
                                 <div className='flex space-x-7 py-3'>
                                     <ImFacebook size={30} />

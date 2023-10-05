@@ -22,7 +22,7 @@ const loadGoogleMapScript = callback => {
   }
 };
 
-const App = () => {
+const HeroForm = () => {
   const [loadMap, setLoadMap] = useState(false);
   const [basicDate, setBasicDate] = useState(new Date());
   
@@ -37,11 +37,11 @@ const App = () => {
   
       <br />
       <br />
-      {!loadMap ? <div>Loading...</div> : <GPlace />}
+      {!loadMap ? <div>Loading...</div> : <GPlace  />}
       <br />
       <br />
     </div>
   );
 };
 
-export default App;
+export default HeroForm;

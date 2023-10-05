@@ -13,6 +13,7 @@ export default function App() {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 2,
+    autoplay:true,
     dots: true,
     responsive: [
         {
@@ -43,13 +44,12 @@ export default function App() {
   return (
     <div>
       <div className="flex items-center justify-center bg-[#f5f5f5] pb-20">
-        <div className="container mx-auto lg:px-24 xmd:px-20 md:px-10 xsm:px-16 sm:px-10 xl:px-5 2xl:px-2">
+        <div className=" mx-auto lg:px-24 xmd:px-20 md:px-10 xsm:px-16 sm:px-10 xl:px-2 2xl:px-2 lg:w-[1300px] xmd:w-[1000px] md:w-[1000px] xsm:w-[878px] sm:w-[519px] xl:w-[340px] 2xl:w-[340px]">
           <center className='text-[35px] font-mont font-[600] my-10'> Our Popular Fleets </center>
           <Slider className="custom-slider" {...settings}>
-            <div className="my-1 lg:px-5 xmd:px-2 md:px-3 xsm:px-3 sm:px-1 xl:px-1 2xl:px-2
-            w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+            <div className="my-1 lg:px-5 xmd:px-2 md:px-3 xsm:px-3 sm:px-1 xl:px-1 2xl:px-0 lg:my-4 lg:px-4 lg:w-1/3">
               <article className="overflow-hidden shadow-lg ">
-                <a  >
+                <a>
                   <img alt="Placeholder" className="block h-auto w-full" src={image1} />
                 </a>
                 <div className='text-center justify-center bg-[#fff] pb-5'>
