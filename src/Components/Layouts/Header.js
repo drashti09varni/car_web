@@ -34,7 +34,7 @@ export default function Header() {
                 <div className="flex flex-row items-center justify-between ">
                     <a  className="pl-7 flex logo lg:ml-10" href="/">
                         <img  src={Logo} alt="logo" className="w-[199px] h-[30px]"  />
-                        <div className="ml-5 text-[#fff] lg:hidden xmd:hidden md:hidden xsm:hidden sm:block xl:hidden 2xl:hidden">
+                        <div className="ml-5 text-[#fff] lg:invisible xmd:invisible md:visible xsm:visible sm:visible xl:invisible 2xl:invisible ">
                             <div className="flex">
                                 <IoIosCall size={20} />  <p className="mt-[-5px]">+91-9054865866</p>
                             </div>
@@ -81,7 +81,7 @@ export default function Header() {
 
                     {/* --------- web design header ---------- */}
 
-                    <ul className="flex uppercase justify-around mr-0 lg:visible sm:invisible xl:invisible 2xl:invisible right-8 absolute">
+                    <ul className="flex uppercase justify-around mr-0 lg:visible xmd:visible md:invisible xsm:invisible sm:invisible xl:invisible 2xl:invisible right-8 absolute">
                         <Link to="/"><li className="text-[16px] font-semibold text-blue-800 transition-all">Home</li></Link>
                         <li className="text-xl mt-[-5px]">|</li>
                         <Link to="/about-us"><li href="#product" className="text-[16px]  font-semibold text-blue-800 transition-all ">about us</li> </Link>

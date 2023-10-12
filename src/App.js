@@ -6,7 +6,8 @@ import About from './Components/Pages/Aboutus';
 import Driver from './Components/Pages/Drive';
 import './App.css';
 import ContactUs from './Components/Pages/ContactUs';
-import CarList from './Components/Pages/car-list';
+import OneWayCarList from './Components/Pages/oneWay-car-list';
+import RoundTripCarList from './Components/Pages/rounTrip-car-list';
 
 
 function App() {
@@ -23,7 +24,8 @@ function App() {
           <Route path='/about-us' element={<About />} />
           <Route path='/driver' element={<Driver />} />
           <Route path="/contact-us" element={<ContactUs />} />
-          <Route path='/car-list' element={<CarList />} />
+          <Route path='/car-list/one-way' element={<OneWayCarList />} />
+          <Route path='/car-list/round-trip' element={<RoundTripCarList />} />
 
         </Routes>
         <Footer />

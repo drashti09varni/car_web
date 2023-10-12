@@ -120,15 +120,15 @@ export default function Footer() {
                     </div>
                 </div>
             </center> */}
-            <div class="popular_section bg-[#000] pb-10 lg:block xmd:block md:block xsm:hidden sm:hidden xl:hidden 2xl:hidden">
-                <div class="container mx-auto">
-                    <center class="text-2xl font-bold mb-4 text-[#fff] py-5">Popular Routes</center>
-                    <div class="grid grid-cols-3 gap-4">
+            <div className="popular_section bg-[#000] pb-10 lg:block xmd:block md:block xsm:hidden sm:hidden xl:hidden 2xl:hidden">
+                <div className="container mx-auto">
+                    <center className="text-2xl font-bold mb-4 text-[#fff] py-5">Popular Routes</center>
+                    <div className="grid grid-cols-3 gap-4">
 
-                        <div class="col-span-1">
-                            <div class="h-[250px] overflow-auto lg:mx-[50px] " id="style-1">
-                                <div class="force-overflow text-[15px]">
-                                <ul class="flex flex-col">
+                        <div className="col-span-1">
+                            <div className="h-[250px] overflow-auto lg:mx-[50px] " id="style-1">
+                                <div className="force-overflow text-[15px]">
+                                <ul className="flex flex-col">
                                         <li className='py-1 text-[#9e9e9e]'><a  >Morbi to Ahmedabad Airport Taxi, Sard ..</a></li>
                                         <li className='py-1 text-[#9e9e9e]'><a  >Morbi to Ahmedabad Airport Taxi, Sard ..</a></li>
                                         <li className='py-1 text-[#9e9e9e]'><a  >Morbi to Ahmedabad Airport Taxi, Sard ..</a></li>
@@ -144,10 +144,10 @@ export default function Footer() {
                             </div>
                         </div>
 
-                        <div class="col-span-1">
-                            <div class="h-[250px] overflow-auto lg:mx-[50px]" id="style-1">
-                                <div class="force-overflow text-[15px]">
-                                <ul class="flex flex-col ">
+                        <div className="col-span-1">
+                            <div className="h-[250px] overflow-auto lg:mx-[50px]" id="style-1">
+                                <div className="force-overflow text-[15px]">
+                                <ul className="flex flex-col ">
                                         <li className='py-1 text-[#9e9e9e]'><a  >Morbi to Ahmedabad Airport Taxi, Sard ..</a></li>
                                         <li className='py-1 text-[#9e9e9e]'><a  >Morbi to Ahmedabad Airport Taxi, Sard ..</a></li>
                                         <li className='py-1 text-[#9e9e9e]'><a  >Morbi to Ahmedabad Airport Taxi, Sard ..</a></li>
@@ -163,10 +163,10 @@ export default function Footer() {
                             </div>
                         </div>
 
-                        <div class="col-span-1">
-                            <div class="foot_box csmtbx  h-[250px] overflow-auto lg:mx-[50px]" id="style-1">
-                                <div class="force-overflow text-[15px]">
-                                <ul class="flex flex-col">
+                        <div className="col-span-1">
+                            <div className="foot_box csmtbx  h-[250px] overflow-auto lg:mx-[50px]" id="style-1">
+                                <div className="force-overflow text-[15px]">
+                                <ul className="flex flex-col">
                                         <li className='py-1 text-[#9e9e9e]'><a  >Morbi to Ahmedabad Airport Taxi, Sard ..</a></li>
                                         <li className='py-1 text-[#9e9e9e]'><a  >Morbi to Ahmedabad Airport Taxi, Sard ..</a></li>
                                         <li className='py-1 text-[#9e9e9e]'><a  >Morbi to Ahmedabad Airport Taxi, Sard ..</a></li>
@@ -186,13 +186,13 @@ export default function Footer() {
 
 
 
-                    <center class="text-2xl font-bold mb-4 text-[#fff] py-5">Popular Routes</center>
-                    <div class="grid grid-cols-3 gap-4">
+                    <center className="text-2xl font-bold mb-4 text-[#fff] py-5">Popular Routes</center>
+                    <div className="grid grid-cols-3 gap-4">
 
-                    <div class="col-span-1">
-                            <div class="h-[250px] overflow-auto lg:mx-[50px] " id="style-1">
-                                <div class="force-overflow text-[15px]">
-                                <ul class="flex flex-col">
+                    <div className="col-span-1">
+                            <div className="h-[250px] overflow-auto lg:mx-[50px] " id="style-1">
+                                <div className="force-overflow text-[15px]">
+                                <ul className="flex flex-col">
                                         <li className='py-1 text-[#9e9e9e]'><a  >Morbi to Ahmedabad Airport Taxi, Sard ..</a></li>
                                         <li className='py-1 text-[#9e9e9e]'><a  >Morbi to Ahmedabad Airport Taxi, Sard ..</a></li>
                                         <li className='py-1 text-[#9e9e9e]'><a  >Morbi to Ahmedabad Airport Taxi, Sard ..</a></li>
@@ -208,10 +208,10 @@ export default function Footer() {
                             </div>
                         </div>
 
-                        <div class="col-span-1">
-                            <div class="h-[250px] overflow-auto lg:mx-[50px]" id="style-1">
-                                <div class="force-overflow text-[15px]">
-                                <ul class="flex flex-col ">
+                        <div className="col-span-1">
+                            <div className="h-[250px] overflow-auto lg:mx-[50px]" id="style-1">
+                                <div className="force-overflow text-[15px]">
+                                <ul className="flex flex-col ">
                                         <li className='py-1 text-[#9e9e9e]'><a  >Morbi to Ahmedabad Airport Taxi, Sard ..</a></li>
                                         <li className='py-1 text-[#9e9e9e]'><a  >Morbi to Ahmedabad Airport Taxi, Sard ..</a></li>
                                         <li className='py-1 text-[#9e9e9e]'><a  >Morbi to Ahmedabad Airport Taxi, Sard ..</a></li>
@@ -227,10 +227,10 @@ export default function Footer() {
                             </div>
                         </div>
 
-                        <div class="col-span-1">
-                            <div class="foot_box csmtbx  h-[250px] overflow-auto lg:mx-[50px]" id="style-1">
-                                <div class="force-overflow text-[15px]">
-                                <ul class="flex flex-col">
+                        <div className="col-span-1">
+                            <div className="foot_box csmtbx  h-[250px] overflow-auto lg:mx-[50px]" id="style-1">
+                                <div className="force-overflow text-[15px]">
+                                <ul className="flex flex-col">
                                         <li className='py-1 text-[#9e9e9e]'><a  >Morbi to Ahmedabad Airport Taxi, Sard ..</a></li>
                                         <li className='py-1 text-[#9e9e9e]'><a  >Morbi to Ahmedabad Airport Taxi, Sard ..</a></li>
                                         <li className='py-1 text-[#9e9e9e]'><a  >Morbi to Ahmedabad Airport Taxi, Sard ..</a></li>
@@ -252,8 +252,8 @@ export default function Footer() {
             </div>
 
 
-            <div class="bg-[#12161d] text-white py-10 lg:px-0 xmd:px-28 md:px-32 xsm:px-10 sm:px-10 xl:px-10">
-                <div class="container mx-auto flex justify-center">
+            <div className="bg-[#12161d] text-white py-10 lg:px-0 xmd:px-28 md:px-32 xsm:px-10 sm:px-10 xl:px-10">
+                <div className="container mx-auto flex justify-center">
                     <div className=' grid lg:grid-cols-3  xmd:grid-cols-3 md:grid-cols-3 xsm:grid-cols-2 sm:grid-cols-2 xl:grid-cols-2 gap-9 '>
                         <div className="  lg:w-[350px] xsm:w-[150px] xl:w-[100px] text-[#9e9e9e]" >
                             <div className='flex flex-col  '>
@@ -300,8 +300,8 @@ export default function Footer() {
                 </div>
             </div>
 
-            <footer class="bg-[#010712] text-[#fff] py-4">
-                <div class="container mx-auto flex justify-center font-mont">
+            <footer className="bg-[#010712] text-[#fff] py-4">
+                <div className="container mx-auto flex justify-center font-mont">
                     <p>© 2021 | All Rights Reserved by Buzzway And Promoted and Design By Duplex Technologies</p>
                 </div>
             </footer>

@@ -13,12 +13,12 @@ import drive_car from '../../Images/Driver/car_driver.png';
 
 export default function Driver() {
     return <>
-        <div class="content">
-            <div class="photos">
-                <div class="thumbnails">
+        <div className="content">
+            <div className="photos">
+                <div className="thumbnails">
                     <img src={BgImage} />
-                    <div class="black"></div>
-                    <div class="title font-mont font-[700] ">
+                    <div className="black"></div>
+                    <div className="title font-mont font-[700] ">
                         <div className='font-mont font-[700]'>Join as a Driver</div>
                         <div className='flex space-x-3 text-[15px] font-[500] ml-6'>
                             <Link to="/"><p>Home</p></Link> <p>&gt;</p> <p>Join as a Driver</p></div>
@@ -26,6 +26,7 @@ export default function Driver() {
                 </div>
             </div>
         </div>
+        
         <div className='max-w-6xl mx-auto my-10'>
             <div className='grid lg:grid-cols-2  xmd:grid-cols-2 md:grid-cols-2  xsm:grid-cols-2 sm:grid-cols-1 xl:grid-cols-1 2xl:grid-cols-1'>
                 <div className='px-6 leading-7 font-mont w-[100%]'>
@@ -42,25 +43,25 @@ export default function Driver() {
                     </p>
                 </div>
 
-                <div class="flex justify-center items-center  bg-blue-400 lg:w-[85%] xmd:w-[85%] md:w-[85%] xsm:w-[85%] sm:w-[97%] 
+                <div className="flex justify-center items-center  bg-blue-400 lg:w-[85%] xmd:w-[85%] md:w-[85%] xsm:w-[85%] sm:w-[97%] 
                 xl:w-[98%] 2xl:w-[98%]
                 lg:mt-[-100px] xmd:mt-[-100px] md:mt-[-100px] xsm:mt-[-100px] sm:mt-[10px]">
-                    <div class="w-full bg-[#fcb407] rounded shadow-2xl px-8 py-4 m-4">
-                        <h1 class="block w-full text-center text-gray-800 text-2xl font-bold mb-2 font-mont">Get in touch</h1>
+                    <div className="w-full bg-[#fcb407] rounded shadow-2xl px-8 py-4 m-4">
+                        <h1 className="block w-full text-center text-gray-800 text-2xl font-bold mb-2 font-mont">Get in touch</h1>
                         <form>
-                            <div class="flex flex-col mb-3">
-                                <input class=" py-5  placeholder-text-[20px]  px-3 " type="text" name="first_name" id="first_name"
+                            <div className="flex flex-col mb-3">
+                                <input className=" py-5  placeholder-text-[20px]  px-3 " type="text" name="first_name" id="first_name"
                                     placeholder='Enter Your Name' />
 
                             </div>
 
-                            <div class="flex flex-col mb-3">
-                                <input class=" py-5 placeholder-[20px]  px-3 " type="email" name="email" id="email" placeholder='Enter Your E-Mail' />
+                            <div className="flex flex-col mb-3">
+                                <input className=" py-5 placeholder-[20px]  px-3 " type="email" name="email" id="email" placeholder='Enter Your E-Mail' />
                             </div>
-                            <div class="flex flex-col mb-3">
-                                <input class=" py-5  placeholder-[20px]  px-3 " type="text" name="first_name" id="first_name" placeholder='Enter Your Phone' />
+                            <div className="flex flex-col mb-3">
+                                <input className=" py-5  placeholder-[20px]  px-3 " type="text" name="first_name" id="first_name" placeholder='Enter Your Phone' />
                             </div>
-                            <div class="flex flex-col mb-3">
+                            <div className="flex flex-col mb-3">
                                 <select name="languages" id="lang" className='py-2 rounded  placeholder-[20px]  px-3 '>
                                     <option value="javascript">Choose City</option>
                                     <option value="php">PHP</option>
@@ -72,7 +73,7 @@ export default function Driver() {
                                     <option value="erlang">Erlang</option>
                                 </select>
                             </div>
-                            <div class="flex flex-col mb-3">
+                            <div className="flex flex-col mb-3">
                                 <select name="languages" id="lang" className=' py-2 rounded placeholder-[##050505] placeholder-[20px]  px-3 '>
                                     <option value="javascript">Choose Vehical Type</option>
                                     <option value="php">PHP</option>
@@ -91,7 +92,7 @@ export default function Driver() {
             </div>
         </div>
 
-        <div class="flex flex-col items-center justify-center my-10 bg-[#f3f3f3] ">
+        <div className="flex flex-col items-center justify-center my-10 bg-[#f3f3f3] ">
             <div>
                 <h1 className='lg:text-[30px] xmd:text-[30px] md:text-[30px] xsm:text-[25px] xl:text-[25px] pl-5
                  py-10 font-[700] font-mont'
@@ -140,11 +141,11 @@ export default function Driver() {
                     <img src={tick} className='w-[60px] h-[65px]' />
                     <div>
                         <h1 className='text-[25px] font-[700] font-mont py-2'>Driver Documents</h1>
-                        <ul class="number-circle-list flex flex-col">
-                            <li class="number-circle-list--list-item text-[#000]"> Pancard </li>
-                            <li class="number-circle-list--list-item  text-[#000]"> Cancelled Cheque or Passbook </li>
-                            <li class="number-circle-list--list-item  text-[#000]"> Aadhar Card </li>
-                            <li class="number-circle-list--list-item  text-[#000]"> Address Proof </li>
+                        <ul className="number-circle-list flex flex-col">
+                            <li className="number-circle-list--list-item text-[#000]"> Pancard </li>
+                            <li className="number-circle-list--list-item  text-[#000]"> Cancelled Cheque or Passbook </li>
+                            <li className="number-circle-list--list-item  text-[#000]"> Aadhar Card </li>
+                            <li className="number-circle-list--list-item  text-[#000]"> Address Proof </li>
                         </ul>
                     </div>
                 </div>
@@ -152,10 +153,10 @@ export default function Driver() {
                     <img src={tick} className='w-[60px] h-[65px]' />
                     <div>
                         <h1 className='text-[25px] font-[700] font-mont py-2'>Car Documents</h1>
-                        <ul class="number-circle-list flex flex-col">
-                            <li class="number-circle-list--list-item text-[#000]"> Vehicle RC </li>
-                            <li class="number-circle-list--list-item  text-[#000]"> Vehicle Permit </li>
-                            <li class="number-circle-list--list-item  text-[#000]"> Vehicle Insurance </li>
+                        <ul className="number-circle-list flex flex-col">
+                            <li className="number-circle-list--list-item text-[#000]"> Vehicle RC </li>
+                            <li className="number-circle-list--list-item  text-[#000]"> Vehicle Permit </li>
+                            <li className="number-circle-list--list-item  text-[#000]"> Vehicle Insurance </li>
                         </ul>
                     </div>
                 </div>

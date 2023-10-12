@@ -9,12 +9,12 @@ import { Link } from 'react-router-dom';
 
 export default function Aboutus() {
     return <>
-        <div class="content">
-            <div class="photos">
-                <div class="thumbnails">
+        <div className="content">
+            <div className="photos">
+                <div className="thumbnails">
                     <img src={BgImage} />
-                    <div class="black"></div>
-                    <div class="title font-mont font-[700] ">
+                    <div className="black"></div>
+                    <div className="title font-mont font-[700] ">
                         <div>About Us</div>
                         <div className='flex space-x-3 text-[15px] font-[500]'>
                             <Link to="/"><p>Home</p></Link> <p>&gt;</p> <p>About Us</p></div>

@@ -35,8 +35,7 @@ const HeroForm = () => {
   return (
     <div className="App">
   
-      <br />
-      <br />
+     
       {!loadMap ? <div>Loading...</div> : <GPlace  />}
       <br />
       <br />
