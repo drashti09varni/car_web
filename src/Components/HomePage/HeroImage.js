@@ -5,6 +5,7 @@ import AboutUs from './Home-About';
 import OurService from './Our-Service';
 import HowItWork from './How-it-work';
 import Testimonial from './Testimonial';
+import Memories from "./Memories";
 
 export default function HeroImage() {
 
@@ -33,7 +34,7 @@ export default function HeroImage() {
 
                 </div>
                 <div className=" ">
-                    <div className="container mx-auto">
+                    <div className=" mx-auto">
                         <HeroForm />
                     </div>
                 </div>
@@ -46,7 +47,7 @@ export default function HeroImage() {
                 <HowItWork />
             </div>
             <Testimonial />
-
+            <Memories />
         </>
     )
 }

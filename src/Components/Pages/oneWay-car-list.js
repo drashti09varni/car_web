@@ -1,54 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { HiLocationMarker } from 'react-icons/hi';
-import { MdDateRange } from 'react-icons/md';
-import { BiTimeFive, BiSolidDirectionRight } from 'react-icons/bi';
-import { AiFillStar } from 'react-icons/ai';
-import { FaRupeeSign } from 'react-icons/fa';
+import { useNavigate } from "react-router-dom";
+
 
 const OneWayCarList = () => {
+  const navigate = useNavigate();
+
   const [showModal, setShowModal] = React.useState(false);
   const location = useLocation();
-  const { distance, formattedDate, formattedTime, travelTime, address_first, address_sec } = location.state;
+  const { data, city } = location.state;
 
-  // Initialize state to hold an array of trip data objects
-  const [tripData, setTripData] = useState([]);
-  console.log(distance);
+const handleSubmit = (item) =>{
+  
+  navigate('/booking-form', {
+    state: {
+        selectData: item,
+    },
+});
 
-  const swift_price = distance * 12;
-  const swift_Car_price = swift_price.toFixed(2);
-
-  const ertiga_price = distance * 14;
-  const ertiga_Car_price = ertiga_price.toFixed(2);
-
-
-  const crysta_price = distance * 19;
-  const crysta_Car_price = crysta_price.toFixed(2);
-
-
-
-
-  const swift_data = [
-    {
-      car_img: "https://www.buzzway.in/uploads/Sedanhdpi.jpg",
-      car_name: "Swift Dzire Or Similar (4+1)",
-      car_price: swift_Car_price
-    }
-  ]
-
-  const Ertiga_data = [
-    {
-      car_img: "https://www.buzzway.in/uploads/SUVhdpi.jpg",
-      car_name: "Maruti Suzuki Ertiga Or Similar (6+1))",
-      car_price: ertiga_Car_price
-    }
-  ]
-  const Crysta_data = [{
-    car_img: "https://www.buzzway.in/uploads/New_innova.jpg",
-    car_name: "Toyota Innova Crysta (6+1)",
-    car_price: crysta_Car_price
-  }]
-
+}
 
 
 
@@ -154,217 +124,82 @@ const OneWayCarList = () => {
     ) : null}
 
 
+
     <div className='h-[70px] bg-[#2766dd] '></div>
     <div className='h-[30px] bg-[#144298]'></div>
-    <div className='flex flex-col justify-center items-center'>
+    <div className='flex flex-col justify-center '>
 
-      {/* header */}
-      <div className='grid lg:grid-cols-5  xmd:grid-cols-5  md:grid-cols-5  xsm:grid-cols-3  sm:grid-cols-2
-      xl:grid-cols-2 2xl:grid-cols-1 lg:gap-14 xmd:gap-14 md:gap-14 xsm:gap-10 sm:gap-10 xl:gap-10 2xl:gap-10 border border-[#dcdcdc] px-1 m-6 py-2 
-      shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]  w-auto'>
-        <div >
-          <div className='flex'>
-            <HiLocationMarker size={25} />
-            <p className='ml-2 font-mont'>Booking Type</p>
-          </div>
-          <p className='ml-8 text-[13px] mt-[-3px] font-light text-[#212529]'>One way Usage</p>
-        </div>
-        <div >
-          <div className='flex'>
-            <MdDateRange size={25} />
-            <p className='ml-2 font-mont text-[#212529]'>Pick-up-Date & Time</p>
-          </div>
-          <p className='ml-8 text-[13px] mt-[-3px] font-light ' >{formattedDate} {formattedTime}</p>
-        </div>
-        <div >
-          <div className='flex'>
-            <BiTimeFive size={25} />
-            <p className='ml-2 font-mont text-[#212529]'>Duration</p>
-          </div>
-          <p className='ml-8 text-[13px] mt-[-3px] font-light' >{travelTime}</p>
-        </div>
-        <div >
-          <div className='flex'>
-            <BiSolidDirectionRight size={25} />
-            <p className='ml-2 font-mont font-normal text-[#212529]'>Trip Type</p>
-          </div>
-          <p className='ml-8 text-[13px] mt-[-3px] font-light'>Oneway</p>
-        </div>
-        <div>
-          <button className='bg-yellow uppercase px-8 py-2 rounded-3xl'>Modify</button>
-        </div>
+      <div>
+        <h1 className='text-[40px] font-[600] items-start [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] px-80 pt-10'>
+          Surat To {city} Cabs
+        </h1>
       </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full px-80 py-10">
+        {data?.map((item) => {
+          
+          return <>
+            <div class="relative mx-auto w-full shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
+              <a class="relative inline-block duration-300 ease-in-out transition-transform transform hover:-translate-y-2 w-full">
+                <div class="shadow p-4 rounded-lg bg-white">
+                  <div class="flex justify-center relative rounded-lg overflow-hidden h-58">
+                    <div class="transition-transform duration-500 transform ease-in-out hover:scale-110 w-full">
+                      <div class="absolute inset-0 bg-black opacity-10"></div>
+                      <img src={`http://localhost:4200/uploads/${item.carImg}`} />
+                    </div>
+                  </div>
 
-      {/* router location from and to */}
-      <div className='border border-[#dcdcdc] px-1 m-6 py-2 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] mt-[-5px]  w-auto'>
-        <p>Route: {address_first.address} -&gt; {address_sec.address} &nbsp; </p>
-        <p></p>
-      </div>
+                  <div class="mt-4">
+                    <h2 class="font-medium text-[20px] text-gray-800 text-center " >
+                      {item.car_name}
+                    </h2>
+                    <div className='px-5 py-5'>
+                      <div className='grid grid-cols-2 space-x-8'>
+                        <p class="mt-2 text-[15px]  text-[#000] font-[600]  line-clamp-1">
+                          Total KM : {item.totalKm}
+                        </p>
+                        <p class="mt-2 text-[15px]  text-[#000] font-[600]  line-clamp-1">
+                          Base Fare : {item.baseFare}
+                        </p>
 
+                      </div>
+                      <div className='grid grid-cols-2 space-x-8'>
+                        <p class="mt-2 text-[15px] text-[#000] font-[600] line-clamp-1" >
+                          Passenger: {item.pessenger}
 
-      {/* all cards car */}
-      <div className='grid lg:grid-cols-5 xmd:grid-cols-5 md:grid-cols-5 xsm:grid-cols-2 sm:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-1 
-      lg:gap-10 xmd:gap-10  md:gap-10  xsm:gap-0 sm:gap-0 xl:gap-0  2xl:gap-0  border border-[#dcdcdc]  m-6 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]  w-auto
-      lg:px-0 xmd:px-0 md:px-0 xsm:px-0 sm:px-0 xl:px-4 2xl:px-0'>
-        <div className='col-span-1 xl:justify-self-center'>
-          <img src={swift_data[0].car_img} />
-        </div>
+                        </p>
+                        <p class="mt-2 text-[15px]  text-[#000] font-[600]  line-clamp-1" >
+                          Bags: {item.bags}
 
-        <div className='col-span-1  py-2 lg:w-[145px] xmd:w-[145px] md:w-[145px]  xl:justify-self-center xsm:w-[245px] sm:w-[220px]  xl:w-[245px] 2xl:w-[245px] '>
-          <h2 className='text-[#144298] text-[18px] font-[700] '>{swift_data[0].car_name}</h2>
-          <div className='flex gap-2'>
-            <AiFillStar fill="#fcaf21" />
-            <AiFillStar fill="#fcaf21" />
-            <AiFillStar fill="#fcaf21" />
-            <AiFillStar fill="#fcaf21" />
-            <AiFillStar fill="#fcaf21" />
-          </div>
-          <h5 className='text-[14px]'>Wagon R Or Similar <br /> (4+1)</h5>
-          <h5 className='text-[14px]'>(Hatchback)</h5>
-        </div>
+                        </p>
+                      </div>
+                      <p class="mt-2 text-[15px]  text-[#000] font-[600]  line-clamp-1">
+                        State Tax: {item.stateTax}
 
-        <div className='py-2 lg:col-span-2 xmd:col-span-2 md:col-span-2 xsm:col-span- sm:col-span-1 xl:col-span-1 2xl:col-span-1 
-        lg:ml-0 xmd:ml-0 md:ml-0 xsm:ml-5 sm:ml-3'>
-          <p>Facilities:</p>
-          <div className='flex gap-8'>
-            <div>
-              <img src='https://www.buzzway.in/assets/frontuser/images/icons/water.png' />
-              <p className='text-[11px]'>Water Bottle</p>
+                      </p>
+                      <p class="mt-2 text-[15px]  text-[#000] font-[600]  line-clamp-1" >
+                        Driver Allowance: {item.driverAllow}
+
+                      </p>
+                      <p class="mt-2 text-[15px]  text-[#000] font-[600]  line-clamp-1" >
+                        Note: 100% Price Guarantee (One Way Trip)
+                      </p>
+                      <p class="mt-2 text-[15px]  text-[#000] font-[600]  line-clamp-1" >
+                        Amount: {item.driverAllow == Number ? (Number(item.baseFare) + Number(item.tollTax) + Number(item.driverAllow))
+                               : (Number(item.baseFare) + Number(item.tollTax))}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="text-center bg-yellow mx-14 rounded text-[#000] font-[600]">
+                    <button class="px-20 py-2"  onClick={()=>{handleSubmit(item)}}>Book Now</button>
+                  </div>
+                </div>
+              </a>
             </div>
-
-            <div>
-              <img src='https://www.buzzway.in/assets/frontuser/images/icons/on-time.png' />
-              <p className='text-[11px]'> On Time Guarantee</p>
-            </div>
-            <div>
-              <img src='https://www.buzzway.in/assets/frontuser/images/icons/GST.png' />
-              <p className='text-[11px]'> Invoice Gst</p>
-            </div>
-            <div>
-              <img src='https://www.buzzway.in/assets/frontuser/images/icons/sanitizer.png' />
-              <p className='text-[11px]'> Sanitized Cab</p>
-            </div>
-
-          </div>
-        </div>
-
-        <div className='py-5  bg-[#d1dfff] lg:w-[170px] xmd:w-[170px] md:w-[170px] xsm:w-[170px] sm:w-[170px] xl:w-[290px] 2xl:w-[170px] justify-self-end text-center col-span-1'>
-
-          <p className='text-[22px] font-[700] font-mont '>₹  {swift_data[0].car_price} </p>
-          <button className='bg-yellow py-1 px-6 rounded-3xl my-2 text-[#144298] font-[600]'>book now</button>
-          <p className='font-mont text-[14px] py-1  text-[#144298]' onClick={() => setShowModal(true)}>Fare Summary &gt;&gt;</p>
-        </div>
+          </>
+        })}
 
 
-      </div>
 
-      <div className='grid lg:grid-cols-5 xmd:grid-cols-5 md:grid-cols-5 xsm:grid-cols-2 sm:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-1 
-      lg:gap-10 xmd:gap-10  md:gap-10  xsm:gap-0 sm:gap-0 xl:gap-0  2xl:gap-0  border border-[#dcdcdc]  m-6 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]  w-auto
-      lg:px-0 xmd:px-0 md:px-0 xsm:px-0 sm:px-0 xl:px-4 2xl:px-0'>
-        <div className='col-span-1 xl:justify-self-center'>
-          <img src={Ertiga_data[0].car_img} />
-        </div>
-
-        <div className='col-span-1  py-2 lg:w-[145px] xmd:w-[145px] md:w-[145px]  xl:justify-self-center xsm:w-[245px] sm:w-[220px]  xl:w-[245px] 2xl:w-[245px] '>
-          <h2 className='text-[#144298] text-[18px] font-[700] '>{Ertiga_data[0].car_name}</h2>
-          <div className='flex gap-2'>
-            <AiFillStar fill="#fcaf21" />
-            <AiFillStar fill="#fcaf21" />
-            <AiFillStar fill="#fcaf21" />
-            <AiFillStar fill="#fcaf21" />
-            <AiFillStar fill="#fcaf21" />
-          </div>
-          <h5 className='text-[14px]'>Wagon R Or Similar <br /> (4+1)</h5>
-          <h5 className='text-[14px]'>(Hatchback)</h5>
-        </div>
-
-        <div className='py-2 lg:col-span-2 xmd:col-span-2 md:col-span-2 xsm:col-span- sm:col-span-1 xl:col-span-1 2xl:col-span-1 
-        lg:ml-0 xmd:ml-0 md:ml-0 xsm:ml-5 sm:ml-3'>
-          <p>Facilities:</p>
-          <div className='flex gap-8'>
-            <div>
-              <img src='https://www.buzzway.in/assets/frontuser/images/icons/water.png' />
-              <p className='text-[11px]'>Water Bottle</p>
-            </div>
-
-            <div>
-              <img src='https://www.buzzway.in/assets/frontuser/images/icons/on-time.png' />
-              <p className='text-[11px]'> On Time Guarantee</p>
-            </div>
-            <div>
-              <img src='https://www.buzzway.in/assets/frontuser/images/icons/GST.png' />
-              <p className='text-[11px]'> Invoice Gst</p>
-            </div>
-            <div>
-              <img src='https://www.buzzway.in/assets/frontuser/images/icons/sanitizer.png' />
-              <p className='text-[11px]'> Sanitized Cab</p>
-            </div>
-
-          </div>
-        </div>
-
-        <div className='py-5  bg-[#d1dfff] lg:w-[170px] xmd:w-[170px] md:w-[170px] xsm:w-[170px] sm:w-[170px] xl:w-[290px] 2xl:w-[170px] justify-self-end text-center col-span-1'>
-
-          <p className='text-[22px] font-[700] font-mont '>₹  {Ertiga_data[0].car_price} </p>
-          <button className='bg-yellow py-1 px-6 rounded-3xl my-2 text-[#144298] font-[600]'>book now</button>
-          <p className='font-mont text-[14px] py-1  text-[#144298]' onClick={() => setShowModal(true)}>Fare Summary &gt;&gt;</p>
-        </div>
-
-
-      </div>
-
-
-      <div className='grid lg:grid-cols-5 xmd:grid-cols-5 md:grid-cols-5 xsm:grid-cols-2 sm:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-1 
-      lg:gap-10 xmd:gap-10  md:gap-10  xsm:gap-0 sm:gap-0 xl:gap-0  2xl:gap-0  border border-[#dcdcdc]  m-6 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]  w-auto
-      lg:px-0 xmd:px-0 md:px-0 xsm:px-0 sm:px-0 xl:px-4 2xl:px-0'>
-        <div className='col-span-1 xl:justify-self-center'>
-          <img src={Crysta_data[0].car_img} />
-        </div>
-
-        <div className='col-span-1  py-2 lg:w-[145px] xmd:w-[145px] md:w-[145px]  xl:justify-self-center xsm:w-[245px] sm:w-[220px]  xl:w-[245px] 2xl:w-[245px] '>
-          <h2 className='text-[#144298] text-[18px] font-[700] '>{Crysta_data[0].car_name}</h2>
-          <div className='flex gap-2'>
-            <AiFillStar fill="#fcaf21" />
-            <AiFillStar fill="#fcaf21" />
-            <AiFillStar fill="#fcaf21" />
-            <AiFillStar fill="#fcaf21" />
-            <AiFillStar fill="#fcaf21" />
-          </div>
-          <h5 className='text-[14px]'>Wagon R Or Similar <br /> (4+1)</h5>
-          <h5 className='text-[14px]'>(Hatchback)</h5>
-        </div>
-
-        <div className='py-2 lg:col-span-2 xmd:col-span-2 md:col-span-2 xsm:col-span-1 sm:col-span-1 xl:col-span-1 2xl:col-span-1 
-        lg:ml-0 xmd:ml-0 md:ml-0 xsm:ml-5 sm:ml-3'>
-          <p>Facilities:</p>
-          <div className='flex gap-8'>
-            <div>
-              <img src='https://www.buzzway.in/assets/frontuser/images/icons/water.png' />
-              <p className='text-[11px]'>Water Bottle</p>
-            </div>
-
-            <div>
-              <img src='https://www.buzzway.in/assets/frontuser/images/icons/on-time.png' />
-              <p className='text-[11px]'> On Time Guarantee</p>
-            </div>
-            <div>
-              <img src='https://www.buzzway.in/assets/frontuser/images/icons/GST.png' />
-              <p className='text-[11px]'> Invoice Gst</p>
-            </div>
-            <div>
-              <img src='https://www.buzzway.in/assets/frontuser/images/icons/sanitizer.png' />
-              <p className='text-[11px]'> Sanitized Cab</p>
-            </div>
-
-          </div>
-        </div>
-
-        <div className='py-5 bg-[#d1dfff] lg:w-[170px] xmd:w-[170px] md:w-[170px] xsm:w-[170px] sm:w-[170px] xl:w-[290px] 2xl:w-[170px] justify-self-end text-center col-span-1'>
-
-          <p className='text-[22px] font-[700] font-mont '>₹  {Crysta_data[0].car_price} </p>
-          <button className='bg-yellow py-1 px-6 rounded-3xl my-2 text-[#144298] font-[600]'>book now</button>
-          <p className='font-mont text-[14px] py-1  text-[#144298]' onClick={() => setShowModal(true)}>Fare Summary &gt;&gt;</p>
-        </div>
 
       </div>
 

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import BgImage from '../../Images/Aboutus/cab_banner-aboutUs.webp';
-import { Link } from 'react-router-dom';
+import { Link, json } from 'react-router-dom';
 import img1 from '../../Images/Driver/business.png';
 import img6 from '../../Images/Driver/car_icon.png';
 import img5 from '../../Images/Driver/helpline.png';
@@ -9,9 +9,48 @@ import img2 from '../../Images/Driver/rs.png';
 import img3 from '../../Images/Driver/time.png';
 import tick from '../../Images/Driver/tick.png';
 import drive_car from '../../Images/Driver/car_driver.png';
-
+import { Country, State, City } from "country-state-city";
+import Select from "react-select";
+const InitialValue = {
+    name:"",
+    email:"",
+    phone : "",
+}
 
 export default function Driver() {
+
+    const [selectedCountry, setSelectedCountry] = useState(null);
+    const [selectedState, setSelectedState] = useState(null);
+    const [selectedCity, setSelectedCity] = useState(null);
+    const [FormData, setFormData] = useState(InitialValue);
+    const [finalData, setFinalData] = useState([]);
+
+
+  
+
+    const handleChange = (e) => {
+        const name = e.target.name;
+        setFormData({
+            ...FormData,
+            [name]: e.target.value,
+        });
+    };
+
+    useEffect(()=>{})
+
+    const SumitDataForm = () => {
+        const driverData = {
+            name: FormData.name || '', // Ensure these fields are not null
+            email: FormData.email || '',
+            phone: FormData.phone || '',
+            country: selectedCountry?.name || '',
+            state: selectedState?.name || '',
+            city: selectedCity?.name || '',
+        };
+        setFinalData((prevData) => [...prevData, driverData]);
+        console.log(finalData);
+    };
+
     return <>
         <div className="content">
             <div className="photos">
@@ -26,7 +65,7 @@ export default function Driver() {
                 </div>
             </div>
         </div>
-        
+
         <div className='max-w-6xl mx-auto my-10'>
             <div className='grid lg:grid-cols-2  xmd:grid-cols-2 md:grid-cols-2  xsm:grid-cols-2 sm:grid-cols-1 xl:grid-cols-1 2xl:grid-cols-1'>
                 <div className='px-6 leading-7 font-mont w-[100%]'>
@@ -50,42 +89,68 @@ export default function Driver() {
                         <h1 className="block w-full text-center text-gray-800 text-2xl font-bold mb-2 font-mont">Get in touch</h1>
                         <form>
                             <div className="flex flex-col mb-3">
-                                <input className=" py-5  placeholder-text-[20px]  px-3 " type="text" name="first_name" id="first_name"
-                                    placeholder='Enter Your Name' />
+                                <input className=" py-5  placeholder-text-[20px] border-none  px-3 " type="text" name="name" id="first_name"
+                                  value={FormData?.name}  placeholder='Enter Your Name' onChange={handleChange} />
 
                             </div>
 
                             <div className="flex flex-col mb-3">
-                                <input className=" py-5 placeholder-[20px]  px-3 " type="email" name="email" id="email" placeholder='Enter Your E-Mail' />
+                                <input className=" py-5 placeholder-[20px] border-none px-3 " type="email" name="email" 
+                                id="email" placeholder='Enter Your E-Mail' value={FormData?.email}  onChange={handleChange}  />
                             </div>
                             <div className="flex flex-col mb-3">
-                                <input className=" py-5  placeholder-[20px]  px-3 " type="text" name="first_name" id="first_name" placeholder='Enter Your Phone' />
+                                <input className=" py-5  placeholder-[20px] border-none  px-3 " type="text" name="phone" 
+                                id="phone" placeholder='Enter Your Phone'  value={FormData?.phone}  onChange={handleChange} />
                             </div>
                             <div className="flex flex-col mb-3">
-                                <select name="languages" id="lang" className='py-2 rounded  placeholder-[20px]  px-3 '>
-                                    <option value="javascript">Choose City</option>
-                                    <option value="php">PHP</option>
-                                    <option value="java">Java</option>
-                                    <option value="golang">Golang</option>
-                                    <option value="python">Python</option>
-                                    <option value="c#">C#</option>
-                                    <option value="C++">C++</option>
-                                    <option value="erlang">Erlang</option>
-                                </select>
+                                <Select className="placeholder-[20px] border-none pb-4 " placeholder="Enter Your Country"
+                                    options={Country.getAllCountries()} 
+                                    getOptionLabel={(options) => {
+                                        return options["name"];
+                                    }}
+                                    getOptionValue={(options) => {
+                                        return options["name"];
+                                    }}
+                                    value={selectedCountry}
+                                    onChange={(item) => {
+                                        setSelectedCountry(item);
+                                    }}
+                                />
+                                <Select className="placeholder-[20px] border-none pb-4" placeholder="Enter Your State"
+                                    options={State?.getStatesOfCountry(selectedCountry?.isoCode)}
+                                    getOptionLabel={(options) => {
+                                        return options["name"];
+                                    }}
+                                    getOptionValue={(options) => {
+                                        return options["name"];
+                                    }}
+                                    value={selectedState}
+                                    onChange={(item) => {
+                                        setSelectedState(item);
+                                    }}
+                                />
+                                <Select className="placeholder-[20px]  pb-4 " placeholder="Enter Your City"
+                                    options={City.getCitiesOfState(
+                                        selectedState?.countryCode,
+                                        selectedState?.isoCode
+                                    )}
+                                    getOptionLabel={(options) => {
+                                        return options["name"];
+                                    }}
+                                    getOptionValue={(options) => {
+                                        return options["name"];
+                                    }}
+                                    value={selectedCity}
+                                    onChange={(item) => {
+                                        setSelectedCity(item);
+                                    }}
+                                />
                             </div>
-                            <div className="flex flex-col mb-3">
-                                <select name="languages" id="lang" className=' py-2 rounded placeholder-[##050505] placeholder-[20px]  px-3 '>
-                                    <option value="javascript">Choose Vehical Type</option>
-                                    <option value="php">PHP</option>
-                                    <option value="java">Java</option>
-                                    <option value="golang">Golang</option>
-                                    <option value="python">Python</option>
-                                    <option value="c#">C#</option>
-                                    <option value="C++">C++</option>
-                                    <option value="erlang">Erlang</option>
-                                </select>
-                            </div>
-                            <center><button className='uppercase bg-[#2766dd] py-2 px-5 rounded-3xl text-[#fff] font-[600] '>Send Now</button> </center>
+
+                            <center>
+                                <button type='button' className='uppercase bg-[#2766dd] py-2 px-5 rounded-3xl text-[#fff] font-[600]' 
+                                onClick={SumitDataForm}>
+                                    Send Now</button> </center>
                         </form>
                     </div>
                 </div>
@@ -160,20 +225,15 @@ export default function Driver() {
                         </ul>
                     </div>
                 </div>
-                
+
             </div>
-            <img src={drive_car} className='lg:block xmd:block md:block xsm:block sm:hidden xl:hidden 2xl:hidden'/>
+            <img src={drive_car} className='lg:block xmd:block md:block xsm:block sm:hidden xl:hidden 2xl:hidden' />
         </div>
         <div className='flex flex-col items-center justify-center my-14 bg-[#f3f3f3]'>
             <div className='py-5 text-center'>
-            <h1 className='text-[32px] font-mont font-[800]'>Our Drivers</h1>
-            <p className='text-[22px] font-[600] font-mont'>Why They Love US</p>
+                <h1 className='text-[32px] font-mont font-[800]'>Our Drivers</h1>
+                <p className='text-[22px] font-[600] font-mont'>Why They Love US</p>
             </div>
         </div>
     </>
 }
-
-
-
-
-

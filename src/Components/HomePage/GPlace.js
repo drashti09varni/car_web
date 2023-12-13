@@ -15,19 +15,14 @@ const GPlace = () => {
     const placeInputRef4 = useRef(null);
     const placeInputRef5 = useRef(null);
 
-
-
-
     return (
         <>
-
-            <div className="flex justify-center items-center ">
+             <div className="flex justify-center items-center ">
                 <div className="w-full">
                     <div className="relative flex flex-col break-words  lg:w-[1100px]
                      xmd:w-[900px] md:w-[850px]  xsm:w-[650px] sm:w-[454px] xl:w-[316px] 2xl:w-[350px]  mb-6 mx-auto mt-[-7px] 
                      lg:rounded-none xmd:rounded-none md:rounded-none xsm:rounded-none sm:rounded-2xl">
-                        
-                        
+                                                
                         {/* header 2 local and outstation */}
                         
                         <ul className="flex list-none pt-3 pb-4 flex-row lg:mb-0 xmd:mb-0 md:mb-0 xsm:mb-0  sm:mb-4 " role="tablist">

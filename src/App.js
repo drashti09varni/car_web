@@ -8,6 +8,7 @@ import './App.css';
 import ContactUs from './Components/Pages/ContactUs';
 import OneWayCarList from './Components/Pages/oneWay-car-list';
 import RoundTripCarList from './Components/Pages/rounTrip-car-list';
+import BookingForm from './Components/Pages/BookingForm';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path='/car-list/one-way' element={<OneWayCarList />} />
           <Route path='/car-list/round-trip' element={<RoundTripCarList />} />
+          <Route path='/booking-form' element={<BookingForm  />} />
 
         </Routes>
         <Footer />
