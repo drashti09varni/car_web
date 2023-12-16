@@ -8,7 +8,9 @@ const OneWayCarList = () => {
 
   const [showModal, setShowModal] = React.useState(false);
   const location = useLocation();
-  const { data, city } = location.state;
+  const { data, city , time, date} = location.state;
+console.log(time);
+console.log(date);
 
 const handleSubmit = (item) =>{
   

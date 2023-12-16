@@ -126,13 +126,13 @@ export default function OneWay() {
 
         //     const travelTimeHours = calculateTime(calculatedDistance, averageSpeed);
         //     console.log(travelTimeHours.toFixed(2))
-        //     const day = selectedDate?.getDate();
-        //     const month = selectedDate?.getMonth() + 1; // Adding 1 to month because it's zero-based.
-        //     const year = selectedDate?.getFullYear() % 100;
-        //     const paddedDay = day < 10 ? `0${day}` : day;
-        //     const paddedMonth = month < 10 ? `0${month}` : month;
-        //     const paddedYear = year < 10 ? `0${year}` : year;
-        //     const Date = `${paddedDay}/${paddedMonth}/${paddedYear}`;
+            const day = selectedDate?.getDate();
+            const month = selectedDate?.getMonth() + 1; // Adding 1 to month because it's zero-based.
+            const year = selectedDate?.getFullYear() % 100;
+            const paddedDay = day < 10 ? `0${day}` : day;
+            const paddedMonth = month < 10 ? `0${month}` : month;
+            const paddedYear = year < 10 ? `0${year}` : year;
+            const Date = `${paddedDay}/${paddedMonth}/${paddedYear}`;
 
         //     const hours = selectedTime?.$d?.getHours();
         //     const minutes = selectedTime?.$d?.getMinutes();
@@ -174,7 +174,21 @@ export default function OneWay() {
         //     });
 
         // }
+            const hours = selectedTime?.$d?.getHours();
+            const minutes = selectedTime?.$d?.getMinutes();
+            const seconds = selectedTime?.$d?.getSeconds();
 
+            // Determine AM or PM
+            const amOrPm = hours >= 12 ? 'PM' : 'AM';
+
+            // Ensure that the hours, minutes, and seconds have two digits
+            const formattedHours = String(hours % 12 || 12).padStart(2, '0'); // Convert 0 to 12 for 12-hour format
+            const formattedMinutes = String(minutes).padStart(2, '0');
+            const formattedSeconds = String(seconds).padStart(2, '0');
+
+            // Create the hh:mm:ss AM/PM string
+            const Time = `${formattedHours}:${formattedMinutes}:${formattedSeconds} ${amOrPm}`;
+            
 
         const selectCity = handleCity.city_name;
         console.log(formCity);
@@ -188,22 +202,23 @@ export default function OneWay() {
         navigate('/car-list/one-way', {
             state: {
                 data: filteredCities,
-                city:selectCity
+                city:selectCity,
+                date : Date,
+                time:Time
             },
         });
-
     }
 
-    const calculateTime = (distance, speed) => {
-        // Calculate time in hours
-        const timeHours = distance / speed;
-        return timeHours;
-    };
+    // const calculateTime = (distance, speed) => {
+    //     // Calculate time in hours
+    //     const timeHours = distance / speed;
+    //     return timeHours;
+    // };
 
-    const handleChangeCity = (e) => {
-        console.log(e.target.value);
-        console.log(e.target.id);
-    }
+    // const handleChangeCity = (e) => {
+    //     console.log(e.target.value);
+    //     console.log(e.target.id);
+    // }
 
     const handleChange = (e) => {
         setHandleCity({

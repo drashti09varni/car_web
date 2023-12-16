@@ -1,12 +1,86 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import BgImage from '../../Images/Aboutus/cab_banner-aboutUs.webp';
+import { toast, Zoom } from "react-toastify";
+
 
 
 export default function BookingForm() {
+
+  const initialValue = {
+    name: "",
+    email: "",
+    date: "",
+    mobileno: "",
+    message: ""
+  }
   const location = useLocation();
   const { selectData } = location.state;
-  console.log(selectData);
+
+  const [selectedDate, setSelectedDate] = useState('');
+  const [formData, setFormData] = useState(initialValue);
+  const [addData, setAddData] = useState([]);
+  
+console.log(selectData);
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setFormData({
+      ...formData,
+      [e.target.name]: value
+    });
+  }
+
+  const handleDateChange = (event) => {
+    setSelectedDate(event.target.value);
+  };
+
+
+  // form submit.....
+  let handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setAddData({
+      "name": formData.name,
+      'email': formData.email,
+      'mobileno': formData.mobileno,
+      'message': formData.message,
+      'date': selectedDate
+    })
+
+
+    const addRecordEndpoint = 'http://localhost:4200/api/v1/addBooking';
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(addData)
+    }
+    const response = await fetch(addRecordEndpoint, options);
+    const jsonResponse = await response.json();
+    
+    console.log(jsonResponse);
+
+    if (jsonResponse.status = "success") {
+      toast.success(jsonResponse.message);
+      setFormData(initialValue);
+      setSelectedDate("");
+      window.location.href = `https://api.whatsapp.com/send?phone=917600060604&text=Name : ${jsonResponse.result.name}
+        ,Email : ${jsonResponse.result.email},
+        Date : ${jsonResponse.result.date}, Message:${jsonResponse.result.message}, 
+        From : Surat To : ${selectData?.city_name}, Vehical :${selectData?.car_name},
+        Total KMs : ${selectData?.totalKm}, Base Fare: ${selectData?.baseFare},
+        Toll Tax: ${selectData?.tollTax}, State Tax: ${selectData?.stateTax}, Driver Allowance: ${selectData?.driverAllow}, 
+       Total Amount : ${selectData.driverAllow == Number ? (Number(selectData.baseFare) + Number(selectData.tollTax) + Number(selectData.driverAllow))
+        : (Number(selectData.baseFare) + Number(selectData.tollTax))} , Passenger:${selectData?.pessenger}, Bags: ${selectData?.bags}
+        , Note: 100% Price Guarantee (One Way Trip)`; 
+
+    } else {
+      toast.error("invalid please try again!!")
+    }
+  };
+
   return <>
     <div className="content">
       <div className="photos">
@@ -22,8 +96,9 @@ export default function BookingForm() {
       </div>
     </div>
 
+
     <div className="flex flex-col md:flex-row md:items-center image-left md:justify-between bg-white p-4 rounded-md shadow-md mb-4 px-40 space-x-20">
-      <div class="relative mx-auto  shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
+      <div class="relative mx-auto  shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-[30%]">
         <a class="relative inline-block duration-300 ease-in-out transition-transform transform hover:-translate-y-2 w-full">
           <div class="shadow p-4 rounded-lg bg-white">
             <div class="flex justify-center relative rounded-lg overflow-hidden ">
@@ -50,24 +125,23 @@ export default function BookingForm() {
                 <div className='grid grid-cols-2 space-x-8'>
                   <p class="mt-2 text-[15px] text-[#000] font-[600] line-clamp-1" >
                     Passenger: {selectData.pessenger}
-
                   </p>
+
                   <p class="mt-2 text-[15px]  text-[#000] font-[600]  line-clamp-1" >
                     Bags: {selectData.bags}
-
                   </p>
                 </div>
                 <p class="mt-2 text-[15px]  text-[#000] font-[600]  line-clamp-1">
                   State Tax: {selectData.stateTax}
-
                 </p>
+
                 <p class="mt-2 text-[15px]  text-[#000] font-[600]  line-clamp-1" >
                   Driver Allowance: {selectData.driverAllow}
-
                 </p>
                 <p class="mt-2 text-[15px]  text-[#000] font-[600]  line-clamp-1" >
                   Note: 100% Price Guarantee (One Way Trip)
                 </p>
+
                 <p class="mt-2 text-[15px]  text-[#000] font-[600]  line-clamp-1" >
                   Amount: {selectData.driverAllow == Number ? (Number(selectData.baseFare) + Number(selectData.tollTax) + Number(selectData.driverAllow))
                     : (Number(selectData.baseFare) + Number(selectData.tollTax))}
@@ -77,21 +151,53 @@ export default function BookingForm() {
           </div>
         </a>
       </div>
-      <div>
-        <h2 className="text-2xl font-bold mb-2">Text with Left Image</h2>
-        <p className="text-gray-800">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-          Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies
-          sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius
-          a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy
-          molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat.
-          Duis semper. Duis arcu, massa scelerisque ac, cursus et, sollicitudin a,
-          orci.
-        </p>
-        <footer className="text-gray-600">(A dummy text)</footer>
+
+      <div className='w-[70%]'>
+        <h2 className='text-[35px] mb-10 [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] font-[600]'>
+          Booking From Surat To {selectData?.city_name} With Maruti Swift Dzire / Similar
+        </h2>
+
+        <form>
+          <div className='grid grid-cols-2 gap-8'>
+            <div>
+              <input type='text' className='w-full p-6' placeholder='Name *' name='name' onChange={handleChange} value={formData.name} />
+            </div>
+            <div>
+              <input type="email" className='w-full p-6' placeholder='Email' name='email' onChange={handleChange} value={formData.email} />
+            </div>
+          </div>
+          <div className='grid grid-cols-2 gap-8 mt-5'>
+            <div>
+              <input
+                type='date'
+                className='w-full p-6'
+                value={selectedDate}
+                onChange={handleDateChange}
+
+              />
+            </div>
+            <div>
+              <input type="mobile" className='w-full p-6' placeholder='Mobile No' name='mobileno' value={formData.mobileno} onChange={handleChange} />
+            </div>
+          </div>
+          <div className='grid grid-cols-1 gap-8 mt-5'>
+            <div>
+              <textarea id="message" rows="6" class="block p-2.5 w-full  text-gray-900 bg-gray-50 rounded-lg border 
+              border-gray-300 " placeholder="Message" name='message' onChange={handleChange} value={formData.message} ></textarea>
+            </div>
+          </div>
+          <div className='mt-8 flex justify-center'>
+            <button type='button' className='bg-yellow px-10 font-[600] py-2 border-0 rounded-3xl' onClick={handleSubmit}
+
+            >Submit
+            </button>
+            {/* <a   href="https://api.whatsapp.com/send?phone=918320655521&text=WHATEVER_LINK_OR_TEXT_YOU_WANT_TO_SEND">
+              Submit
+              </a> */}
+          </div>
+        </form>
       </div>
     </div>
-
 
 
 

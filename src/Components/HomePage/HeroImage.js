@@ -28,10 +28,6 @@ export default function HeroImage() {
                             <img src={carImage} alt="Image Description" className="w-full" />
                         </div>
                     </div>
-
-
-
-
                 </div>
                 <div className=" ">
                     <div className=" mx-auto">
@@ -39,7 +35,6 @@ export default function HeroImage() {
                     </div>
                 </div>
             </div>
-
 
             <AboutUs />
             <OurService />

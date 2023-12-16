@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Logo from '../../Images/Perfect Time, Perfrct Place copy 1.png';
 import { IoIosCall } from 'react-icons/io';
 import { AiOutlineClose } from 'react-icons/ai'
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";    
 export default function Header() {
     const [openNav, setOpenNav] = useState(false);
     const [navSize, setnavSize] = useState("4rem");
@@ -71,6 +71,10 @@ export default function Header() {
                                 </a> </Link>
                                 <Link to="/contact-us"> <a onClick={() => setOpenNav(false)} 
                                     className="text-xl font-semibold text-blue-800  py-2 transition-all hover:text-orange-500">
+                                    Tour
+                                </a> </Link>
+                                <Link to="/contact-us"> <a onClick={() => setOpenNav(false)} 
+                                    className="text-xl font-semibold text-blue-800  py-2 transition-all hover:text-orange-500">
                                     Contact us
                                 </a> </Link>
                                 <a className="flex text-[15px] font-semibold text-blue-800 bg-blue px-6 border-1 w-[215px] my-2
@@ -88,14 +92,13 @@ export default function Header() {
                         <li className="text-xl mt-[-5px]">|</li>
                         <Link to="/driver"><li href="#faq" className="text-[16px]  font-semibold text-blue-800 transition-all">driver</li></Link>
                         <li className="text-xl mt-[-5px]">|</li>
+                        <Link to="/tours"><li href="#faq" className="text-[16px]  font-semibold text-blue-800 transition-all">Tour</li></Link>
+                        <li className="text-xl mt-[-5px]">|</li>
                         <Link to="/contact-us"><li href="#contact" className="text-[16px]  font-semibold text-blue-800 transition-all ">Contact us</li></Link>
                         <a className="flex text-[15px] font-semibold text-blue-800 bg-yellow px-6 border-1 ml-10 
-                        border-yellow rounded-2xl py-1">Call @+91-9054865866</a>
-
+                        border-yellow rounded-2xl py-1"   href = 'https://api.whatsapp.com/send?phone=917600060604&text='>Call @+91-9054865866</a>
                     </ul>
-
                 </div>
-
             </div>
             <Outlet />
         </div>
